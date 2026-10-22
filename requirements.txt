@@ -1,0 +1,11 @@
+# Runtime dependencies of the hosted dashboard (Python 3.12).
+# Versions equal those used to train and save the models (see results/run_manifest.json);
+# the pickled pipelines must be loaded with the same scikit-learn / imbalanced-learn / XGBoost.
+streamlit==1.64.0
+numpy==2.2.6
+pandas==2.2.3
+scipy==1.15.3
+scikit-learn==1.6.1
+imbalanced-learn==0.13.0
+xgboost-cpu==2.1.4  # CPU-only build of XGBoost 2.1.4 (same `xgboost` module, no CUDA libraries)
+joblib==1.4.2

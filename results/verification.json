@@ -1,0 +1,99 @@
+{
+  "class_convention": {
+    "positive_1": "Bot",
+    "negative_0": "BENIGN",
+    "confusion_layout": "rows = true [BENIGN, Bot], cols = predicted [BENIGN, Bot]"
+  },
+  "selected_model": {
+    "run_id": "B_imbalance|primary|xgboost|none|flow_only|seed42",
+    "confusion_matrix": {
+      "tn": 60087,
+      "fp": 5,
+      "fn": 3,
+      "tp": 640
+    },
+    "precision_bot": 0.9922480620155039,
+    "recall_bot": 0.995334370139969,
+    "f1_bot": 0.9937888198757764,
+    "matches_metrics_csv": true,
+    "matches_model_json": true,
+    "max_abs_diff_vs_saved_run_scores": 0.0,
+    "saved_test_positions_match_split": true
+  },
+  "leakage_checks": {
+    "splits_disjoint": true,
+    "scaler_range_equals_fit_rows": true,
+    "scaler_range_equals_all_rows": false,
+    "port_frequency_equals_fit_rows": true,
+    "selected_model_uses_destination_port": false,
+    "n_model_features_before_constant_filter": 76,
+    "n_model_features_after_constant_filter": 66,
+    "selection_pool": "group B validation rows only (see select_model.py)"
+  },
+  "file_order_holdout": {
+    "segments": {
+      "fit": {
+        "rows": 98647,
+        "first_pos": 0,
+        "last_pos": 98646,
+        "bot": 497,
+        "bot_on_8080": 256,
+        "bot_8080_median_flow_duration": 73356.5
+      },
+      "val": {
+        "rows": 24662,
+        "first_pos": 98647,
+        "last_pos": 123308,
+        "bot": 975,
+        "bot_on_8080": 515,
+        "bot_8080_median_flow_duration": 77831.0
+      },
+      "test": {
+        "rows": 60735,
+        "first_pos": 123309,
+        "last_pos": 184043,
+        "bot": 476,
+        "bot_on_8080": 476,
+        "bot_8080_median_flow_duration": 1010031.5
+      }
+    },
+    "sensitivity_train_on_full_first_67pct": [
+      {
+        "model": "random_forest",
+        "feature_set": "flow_only",
+        "trained_on": "first 67% (fit + val)",
+        "precision_bot": 0.9727463312368972,
+        "recall_bot": 0.9747899159663865,
+        "f1_bot": 0.9737670514165793,
+        "pr_auc_bot": 0.9868705553342898,
+        "tp": 464,
+        "fn": 12,
+        "fp": 13
+      },
+      {
+        "model": "xgboost",
+        "feature_set": "flow_only",
+        "trained_on": "first 67% (fit + val)",
+        "precision_bot": 0.9330708661417323,
+        "recall_bot": 0.9957983193277311,
+        "f1_bot": 0.9634146341463414,
+        "pr_auc_bot": 0.9934346420351016,
+        "tp": 474,
+        "fn": 2,
+        "fp": 34
+      },
+      {
+        "model": "xgboost",
+        "feature_set": "with_port_freq",
+        "trained_on": "first 67% (fit + val)",
+        "precision_bot": 0.8040540540540541,
+        "recall_bot": 1.0,
+        "f1_bot": 0.8913857677902621,
+        "pr_auc_bot": 0.9998951676478974,
+        "tp": 476,
+        "fn": 0,
+        "fp": 116
+      }
+    ]
+  }
+}

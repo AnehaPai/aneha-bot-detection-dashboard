@@ -1,0 +1,23 @@
+{
+  "python_packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "imblearn": "0.13.0",
+    "xgboost": "2.1.4"
+  },
+  "seeds": {
+    "primary": 42,
+    "robustness": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "test_size": 0.33,
+  "val_size": 0.2,
+  "n_jobs": 2,
+  "raw_sha256": "53a41c24d570ea83b7ac55b2e94df94e7a8216aeb80a2af0246b6bc8bb543000"
+}
